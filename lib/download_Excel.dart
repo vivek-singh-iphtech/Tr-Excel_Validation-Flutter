@@ -1,5 +1,7 @@
-import 'file_manager/file_manager.dart'; 
+import 'dart:async';
+import 'file_manager/file_manager.dart';
 import 'package:flutter/material.dart';
+
 
 class DownloadExcel extends StatefulWidget {
   const DownloadExcel({Key? key}) : super(key: key);
@@ -24,24 +26,24 @@ class _DownloadExcelState extends State<DownloadExcel> {
           children: [
             ElevatedButton(
               onPressed: () async {
-                await manager.downloadFile();
+               await manager.downloadFile();
+           
                 setState(() {
                   fileDownloaded = true;
+                });
+                Timer(Duration(seconds: 5), () {
+                  setState(() {
+                    fileDownloaded = false;
+                  });
                 });
               },
               child: const Text('Download Excel'),
             ),
             if (fileDownloaded)
-              const Column(
+              Column(
                 children: [
                   SizedBox(height: 20),
                   Text('File downloaded!'),
-                  // ElevatedButton(
-                  //   onPressed: () {
-                   
-                  //   },
-                  //   child: const Text('Check Downloads'),
-                  // ),
                 ],
               ),
           ],

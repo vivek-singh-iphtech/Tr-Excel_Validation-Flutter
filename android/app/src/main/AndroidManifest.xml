@@ -2,6 +2,7 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/> 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/> 
     <application
         android:label="myapp"
         android:name="${applicationName}"
@@ -34,6 +35,8 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+        
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility?hl=en and
